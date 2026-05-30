@@ -35,7 +35,7 @@ public class MenuService {
     public Optional<MenuItem> updatePreparationStatus(Long id, PreparationStatus newStatus) {
         return menuItemRepository.findById(id).map(item -> {
             item.setCurrentStatus(newStatus);
-            return menuItemRepository.save(item); // Updates the status in the DB
+            return menuItemRepository.save(item);
         });
     }
 }

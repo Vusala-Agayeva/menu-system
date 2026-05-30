@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/menu")
-// Allows Web apps (React/Angular) and Mobile Emulators to make network calls cleanly
 @CrossOrigin(origins = "*")
 public class MenuController {
 
@@ -23,10 +22,6 @@ public class MenuController {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
-    /**
-     * GET /api/v1/menu
-     * Used by everyone (Web/iOS/Android) to view the global menu catalog.
-     */
     @GetMapping
     public ResponseEntity<List<MenuItem>> getFullMenu() {
         List<MenuItem> items = menuService.getAllMenuItems();
@@ -65,8 +60,7 @@ public class MenuController {
 
         return menuService.updatePreparationStatus(id, status)
                 .map(updatedItem -> {
-                    // HERO FEATURE: Send the updated item details down the websocket channel!
-                    // Web, iOS, and Android clients listening to /topic/prep-updates will catch this immediately.
+
                     messagingTemplate.convertAndSend("/topic/prep-updates", updatedItem);
 
                     return ResponseEntity.ok(updatedItem);

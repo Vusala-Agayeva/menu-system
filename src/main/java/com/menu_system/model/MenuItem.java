@@ -21,7 +21,7 @@ public class MenuItem {
 
     private String description;
     private Double price;
-    private String imageUrl; // Web/Mobile client image asset URL
+    private String imageUrl;
 
     @Enumerated(EnumType.STRING)
     private PreparationStatus currentStatus = PreparationStatus.RECEIVED;

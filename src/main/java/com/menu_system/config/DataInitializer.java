@@ -23,7 +23,6 @@ public class DataInitializer implements CommandLineRunner {
             return;
         }
 
-        // --- ITEM 1: ARTISAN BURGER ---
         MenuItem burger = new MenuItem();
         burger.setName("Artisan Smash Burger");
         burger.setDescription("Double beef patty, sharp cheddar, secret sauce, toasted brioche bun.");
@@ -39,7 +38,6 @@ public class DataInitializer implements CommandLineRunner {
         burger.setPreparationSteps(List.of(step1, step2, step3, step4));
 
 
-        // --- ITEM 2: NEAPOLITAN PIZZA ---
         MenuItem pizza = new MenuItem();
         pizza.setName("Margherita Neapolitan Pizza");
         pizza.setDescription("San Marzano tomato base, fresh mozzarella, fresh basil, extra virgin olive oil.");
@@ -54,7 +52,6 @@ public class DataInitializer implements CommandLineRunner {
 
         pizza.setPreparationSteps(List.of(pStep1, pStep2, pStep3, pStep4));
 
-        // Save everything to the H2 Database
         menuItemRepository.saveAll(List.of(burger, pizza));
 
         System.out.println(">> Database successfully seeded with 2 signature Menu Items!");

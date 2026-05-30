@@ -20,7 +20,7 @@ public class PrepStep {
     private Integer stepOrder; // Represents execution sequence (1, 2, 3...)
 
     @Column(nullable = false)
-    private String instruction; // e.g., "Sear beef patty on the grill"
+    private String instruction; // "Sear beef patty on the grill"
 
     @Column(nullable = false)
     private Integer estimatedMinutes; // Displayed as a countdown on mobile apps
