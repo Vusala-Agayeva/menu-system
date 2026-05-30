@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: menu_prep_postgres
+    environment:
+      POSTGRES_DB: menudb
+      POSTGRES_USER: hero_user
+      POSTGRES_PASSWORD: super_secure_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
